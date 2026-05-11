@@ -9,13 +9,15 @@ public class Avaliacao {
     public int estrelas;
     public LocalDate data;
     public Usuario usuario;
-
+    private boolean aprovado;
 
     public String obterDataPorExtenso() {
         DateTimeFormatter formatador = DateTimeFormatter.ofPattern("d 'de' MMMM 'de' yyyy");
         return formatador.format(data);
     }
-
+    public void aprovar(){
+        this.aprovado = true;
+    }
     public void exibir() {
         System.out.println(" ");
         System.out.println(usuario.nome);
