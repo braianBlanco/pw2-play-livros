@@ -1,19 +1,27 @@
 package br.com.etechoracio.playlivros.model;
 
-import java.time.LocalTime;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
-public class Avaliacao
-{
-    float estrela;
+public class Avaliacao {
+    public String titulo;
     public String comentario;
-    LocalTime data;
+    public int estrelas;
+    public LocalDate data;
     public Usuario usuario;
-    boolean aprovacao;
+
+
+    public String obterDataPorExtenso() {
+        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("d 'de' MMMM 'de' yyyy");
+        return formatador.format(data);
+    }
 
     public void exibir() {
-        System.out.println("Horácio Augusto da Silveira");
-        System.out.println("5 estrelas - Livro excelente");
-        System.out.println("Avaliado em 2026-04-21T13:12");
-        System.out.println("Livro excelente, muito bem escrito. Chegou no prazo e bem embalado");
+        System.out.println(" ");
+        System.out.println(usuario.nome);
+        System.out.println(estrelas + " estrelas - " + titulo);
+
+        System.out.println("Avaliado em " + obterDataPorExtenso());
+        System.out.println(comentario);
     }
 }
