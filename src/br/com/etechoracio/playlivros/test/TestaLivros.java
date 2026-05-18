@@ -1,32 +1,23 @@
 package br.com.etechoracio.playlivros.test;
 
 import br.com.etechoracio.playlivros.model.Livro;
+import br.com.etechoracio.playlivros.Enums.VersaoEnum;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class TestaLivros {
     public static void main(String[] args) {
         Livro primeiroLivro = new Livro();
-        primeiroLivro.titulo = "Java Orientado a Objetos";
-        primeiroLivro.autor = "Thiago Leite";
-        primeiroLivro.preco = 59.90;
-        primeiroLivro.paginas = 300;
-        primeiroLivro.editora = "Casa do Código";
-        primeiroLivro.isbn = "978-85-66250-46-6";
-
-
-        primeiroLivro.dataLancamento = LocalDate.now().minusDays(10);
-
-        System.out.println("Dados do Primeiro Livro:");
+        primeiroLivro.titulo = "O Poder do Hábito";
+        primeiroLivro.autor = "Charles Duhigg";
+        primeiroLivro.narrador = "Carlos Seidl";
+        primeiroLivro.editora = "Objetiva";
+        primeiroLivro.duracao = LocalTime.of(10, 45);
+        primeiroLivro.versao = VersaoEnum.RESUMIDA;
+        primeiroLivro.preco = 29.90;
+        primeiroLivro.resumo = "Explora como os hábitos funcionam e como podem ser transformados.";
         primeiroLivro.exibir();
-
-        Livro segundoLivro = new Livro();
-        segundoLivro.titulo = "Spring Boot Pro";
-        segundoLivro.autor = "Nélio Alves";
-        segundoLivro.preco = 89.90;
-        segundoLivro.dataLancamento = LocalDate.now().plusDays(15);
-
-        System.out.println("Dados do Segundo Livro:");
-        segundoLivro.exibir();
     }
+
 }
