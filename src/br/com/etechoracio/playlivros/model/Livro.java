@@ -6,7 +6,7 @@ import br.com.etechoracio.playlivros.Enums.VersaoEnum;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class Livro {
+public abstract class Livro {
     public String titulo;
     public String autor;
     public LocalTime duracao;
@@ -21,12 +21,15 @@ public class Livro {
         System.out.println("--------------------");
         System.out.println("Título: " + titulo);
         System.out.println("Autor: " + autor);
-        System.out.println("Narrador: " + narrador);
         System.out.println("Editora: " + editora);
         System.out.println("Disponibilidade: " + obterDisponibilidade());
+        exibirDetalhes();
     }
 
     public DisponibilidadeEnum obterDisponibilidade(){
+        if (dataCantonment == null) {
+            return DisponibilidadeEnum.INDISPONIVEL;
+        }
         if (dataCantonment.isAfter(LocalDate.now())){
             return DisponibilidadeEnum.EM_PRE_VENDA;
         }
@@ -34,4 +37,5 @@ public class Livro {
             return DisponibilidadeEnum.DISPONIVEL;
         }
     }
+    protected abstract void exibirDetalhes();
 }
